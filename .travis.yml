@@ -1,0 +1,19 @@
+langauge: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+  chrome: stable
+dist: xenial
+before_install:
+- yes | gem update --system --force
+- gem install bundler
+script:
+- yarn
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: J/KzXuYQR2ef3DeHkLVD/4DV1h6JKS4z7mC9vR3OTwUg4S5ghZzE2ukVbvZTJucE/quqQekTxgsmaTcVnFOr62RNgjfzTKKTSQfunz5GX60aeSI5k2CJC+oHQRIotxjRYmJYtjeZ3XSw+eWB2qoJ4k6yVwI2XoQNIfZaRj0/LKEiYyQcM3cHKMw7Mh/MWUldWvhO69nzT+puBbD3ZK8xpK7KjLJkisJiUlK/W0kWqDKFF+e1CBFs3EWK0hX1tTdEg4CB5xzWAOu6zxDjwzTRjfvaxT4jgLF8UyYdA3JEH6FesbiHhujCIILlOTIO2wex0Di36nh9cDUSQNRiodWN5xo36WxDdGtVxgdiN75iZ1Gr5BzgbQ5VBIPNWUvAyxxgQItd780UFYfxEe9xfGDRguVmPCTqIft8zbh8xedca//tyfthcGcu6xXKO8W3pqZjy9uHeFSwnCjLgSogtYyoOZGihpEBSUm6X7jI+I4UsK+z7aDQLoJDlIkhQOzuUXMxCIFXR911pEULp6wq8rt2Dj1BGGfdaeamxJppNZm8ShuxcKSgTcZovtENs5HB+9xnb3Ioq7Ib2G+0jqJNOw49MwmNBWZtDYr93QEBEcSQ+RoBJiWgdXOrL9rFm0LPEAPwlChokrk2H2a7LOfjUtnaJ0RiEWBmvdGg6qGa1G6Vnw8=
+  app: lit-forest-97467
