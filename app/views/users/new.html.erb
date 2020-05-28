@@ -1,0 +1,11 @@
+<%= form_with do %>
+  <%= label_tag('Name')%>
+  <%= text_field_tag(:user) %>
+
+  <%= label_tag('Email')%>
+  <%= text_field_tag(:user) %>
+
+  <%= label_tag(:user, :password)%>
+  <%= text_field_tag(:user, :password) %>
+  <%= submit_tag 'Register' %>
+<% end %>
