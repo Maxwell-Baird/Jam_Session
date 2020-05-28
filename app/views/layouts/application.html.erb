@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <nav>
+      <div class="links">
+        <%= link_to "Home", '/', class: "nav-link" %>
+        <%= link_to "Dashboard", '/Dashboard', class: "nav-link" %>
+        <%= link_to "Stats", '/stats', class: "nav-link" %>
+        <%= link_to "About", '/about', class: "nav-link" %>
+      </div>
+      <div>
+        <%= link_to "Logout", '/', class: "nav-link" %>
+      </div>
+    </nav>
+    <%= image_tag("https://www.whenthereshelpthereshope.com/wp-content/uploads/52265235_l.jpg", class: "welcome-bg") %>
     <%= yield %>
   </body>
 </html>
