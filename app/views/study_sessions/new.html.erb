@@ -1,0 +1,27 @@
+<div class="sessions-create">
+  <main>
+<h4>Create new study session</h4>
+  <section>
+    <%= form_with(url: "/study_sessions", method: "post") do %>
+    <label for="topic">Topic: </label>
+    <p></p>
+    <input list="topics" id="topic" name="topic" />
+    <p></p>
+    <%= label_tag(:duration, "Duration:") %>
+    <p></p>
+    <%= number_field_tag 'duration', nil, min: 1 %>
+    <p></p>
+    <%= check_box_tag(:paired) %>
+    <%= label_tag(:paired, "Paired") %>
+    <p></p>
+    <%= submit_tag("Create Session") %>
+    <% end %>
+  </section>
+  </main>
+</div>
+<datalist id="topics">
+  <% StudySession.topics.each do |topic| %>
+    <option value="<%=topic %>">
+  <% end %>
+
+</datalist>

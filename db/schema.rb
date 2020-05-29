@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_193824) do
+ActiveRecord::Schema.define(version: 2020_05_28_205306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "study_sessions", force: :cascade do |t|
+    t.integer "duration"
+    t.string "topic"
+    t.boolean "paired"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_study_sessions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -23,4 +31,5 @@ ActiveRecord::Schema.define(version: 2020_05_28_193824) do
     t.string "refresh_token"
   end
 
+  add_foreign_key "study_sessions", "users"
 end
