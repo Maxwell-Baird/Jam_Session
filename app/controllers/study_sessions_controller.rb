@@ -4,8 +4,7 @@ class StudySessionsController < ApplicationController
   end
 
   def create
-    user = User.create(name: "bob", email: "faked")
-
+    user = User.create(name: "bob", email: "faked", password: "password")
     @studySession = user.studySessions.create(study_session_params)
     if @studySession.save
       redirect_to "/study_sessions/#{@studySession.id}"
@@ -17,6 +16,12 @@ class StudySessionsController < ApplicationController
 
   def show
     @studySession = StudySession.find(params[:id])
+  end
+
+  def destroy
+    @studySession = StudySession.find(params[:id])
+    @studySession.destroy
+    redirect_to "/"
   end
 
   private
