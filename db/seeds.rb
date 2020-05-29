@@ -5,11 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 StudySession.destroy_all
 User.destroy_all
 
 
-user = User.create(name: "bob", email: "faked", password: "password")
+user = User.create(
+  name: 'Pablo D',
+  email: 'test@example.com',
+  password: 'password'
+)
 user.studySessions.create(topic: "Ruby", duration: 5, paired: false)
 user.studySessions.create(topic: "Ruby", duration: 5, paired: true)
 user.studySessions.create(topic: "Cake", duration: 5, paired: true)

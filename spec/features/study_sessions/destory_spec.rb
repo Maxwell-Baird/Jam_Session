@@ -2,7 +2,18 @@ require "rails_helper"
 
 RSpec.describe 'destroy a study session' do
   it 'destroy study session' do
-    user = User.create(name: "bob", email: "faked", password: "password")
+    user = User.create( name: 'Pablo Dee',
+                        email: 'test@example.com',
+                        password: 'password')
+    visit '/'
+
+    click_on 'Login'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_on 'Log In'
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     session1 = user.studySessions.create(topic: "Cheese Making", duration: 4, paired: true)
     visit '/study_sessions/new'
     fill_in 'Topic', with: 'Ruby'

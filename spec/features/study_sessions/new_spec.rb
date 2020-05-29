@@ -2,6 +2,18 @@ require "rails_helper"
 
 RSpec.describe 'create a new study session' do
   it 'can fill out the form' do
+    user = User.create( name: 'Pablo Dee',
+                        email: 'test@example.com',
+                        password: 'password')
+    visit '/'
+
+    click_on 'Login'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_on 'Log In'
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/study_sessions/new'
     fill_in 'Topic', with: 'Ruby'
@@ -15,6 +27,16 @@ RSpec.describe 'create a new study session' do
   end
 
   it 'can fill out the form without checking paired' do
+    user = User.create( name: 'Pablo Dee',
+                        email: 'test@example.com',
+                        password: 'password')
+    visit '/'
+    click_on 'Login'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_on 'Log In'
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/study_sessions/new'
     fill_in 'Topic', with: 'Ruby'
@@ -27,6 +49,18 @@ RSpec.describe 'create a new study session' do
   end
 
   it 'can error out if incorrectly filled in' do
+    user = User.create( name: 'Pablo Dee',
+                        email: 'test@example.com',
+                        password: 'password')
+    visit '/'
+
+    click_on 'Login'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_on 'Log In'
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/study_sessions/new'
     fill_in 'Topic', with: ''

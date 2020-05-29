@@ -11,12 +11,6 @@
 
   <body>
 
-    <div class="flash-message">
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg.html_safe, class: name %>
-        <% end %>
-      </div>
-
     <nav>
       <div class="links">
         <%= link_to "Home", '/', class: "nav-link" %>
@@ -29,7 +23,15 @@
       </div>
     </nav>
     <%= image_tag("https://www.whenthereshelpthereshope.com/wp-content/uploads/52265235_l.jpg", class: "welcome-bg") %>
-
+    <% flash.each do |name, msg| %>
+      <% if name == 'success' %>
+          <p class='alert alert-success'><%= msg %></p>
+      <% elsif name == 'error' %>
+          <p class='alert alert-danger'><%= msg %></p>
+      <% else %>
+          <p class='alert alert-secondary'><%= msg %></p>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

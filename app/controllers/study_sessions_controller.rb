@@ -4,7 +4,7 @@ class StudySessionsController < ApplicationController
   end
 
   def create
-    user = User.create(name: "bob", email: "faked", password: "password")
+    user = User.find(session[:user_id])
     @studySession = user.studySessions.create(study_session_params)
     if @studySession.save
       redirect_to "/study_sessions/#{@studySession.id}"
