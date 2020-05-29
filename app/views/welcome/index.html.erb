@@ -7,7 +7,7 @@
     <h3>Please Register or Log In.</h3>
     <div class="welcome-btns">
       <%= button_to "Register", "/register", class: "welcome-btn" %>
-      <%= button_to "Login", "/login", class: "welcome-btn" %>
+      <%= button_to "Login", "/login", class: "welcome-btn", method: :get %>
       <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
     </div>
   </section>
