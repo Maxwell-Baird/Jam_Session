@@ -32,7 +32,7 @@ RSpec.describe "As a logged in user" , type: :feature do
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-        visit '/'
+        visit '/dashboard'
         click_on 'Connect to Spotify'
 
         expect(user.spotify_token).to eq(ENV['SPOTIFY_TEMP_TOKEN'])
