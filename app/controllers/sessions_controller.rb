@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to '/dashboard'
+      redirect_to dashboard_path
     else
       flash[:error] = 'Your email or password was incorrect'
       render :new
@@ -15,11 +15,12 @@ class SessionsController < ApplicationController
   end
 
   def update
-    user = User.find_by(email: params[:session][:email])
     expires = Time.now + 3600
-    user.update(spotify_token: spotify_info['credentials']['token'],
+    current_user.update(uid: spotify_info['uid'],
+                spotify_token: spotify_info['credentials']['token'],
                 refresh_token: spotify_info['credentials']['refresh_token'],
-                token_expiration: expires )
+                token_expiration: expires)
+
     redirect_to dashboard_path
   end
 
