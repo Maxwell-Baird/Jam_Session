@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#update'
 
   resources :users, except: [:new, :create]
+
+  get '/dashboard', to: 'dashboard#index'
 end
