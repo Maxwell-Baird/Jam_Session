@@ -19,6 +19,7 @@ gem 'capybara'
 gem 'pry'
 gem 'launchy'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bcrypt'
 
 group :development, :test do
 
