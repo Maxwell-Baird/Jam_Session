@@ -4,7 +4,7 @@ RSpec.describe StudySession, type: :model do
 
   describe 'methods' do
     it "can return a list of unique topics" do
-      user = User.create(name: "bob", email: "faked")
+      user = User.create(name: "bob", email: "faked", password: "password")
       user.studySessions.create(topic: "Ruby", duration: 5, paired: false)
       user.studySessions.create(topic: "Ruby", duration: 5, paired: false)
       user.studySessions.create(topic: "Cake", duration: 5, paired: false)

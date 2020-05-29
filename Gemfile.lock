@@ -96,10 +96,8 @@ GEM
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     json (2.3.0)
-
     launchy (2.4.3)
       addressable (~> 2.3)
-
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -173,9 +171,7 @@ GEM
     rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-
     rspec-rails (4.0.0)
-
       actionpack (>= 4.2)
       activesupport (>= 4.2)
       railties (>= 4.2)
