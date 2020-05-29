@@ -8,7 +8,9 @@
     <div class="welcome-btns">
       <%= button_to "Register", "/register", class: "welcome-btn" %>
       <%= button_to "Login", "/login", class: "welcome-btn", method: :get %>
-      <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
+      <% if current_user %>
+        <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
+      <% end %>
     </div>
   </section>
 </main>
