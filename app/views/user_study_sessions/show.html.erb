@@ -1,0 +1,27 @@
+<main class="welcome-page">
+  <section class='welcome-content'>
+    <div class="row">
+      <div class="column">
+        <h3> Total time spent studying:</h3>
+          <p><%= @user.total_time %> minutes</p>
+          <p>--------------------------------</p>
+
+        <h3> Paired time spent studying:</h3>
+          <p><%= @user.paired_time %> minutes</p>
+          <p>--------------------------------</p>
+        <h2> Web Statistics: </h2>
+          <p> You make up <%= @user.global_time %>% of the study time on the website</p>
+          <p>--------------------------------</p>
+      </div>
+      <div class="column">
+        <h2> Individual Topics: </h2>
+        <% @user.topics.each do |topic| %>
+        <h4> <%= topic %> </h4>
+        <p>Time spent studying: <%= @user.topic_time(topic)%> minutes</p>
+        <p>Studying while paired: <%= @user.paired_topic_time(topic)%> minutes</p>
+        <p>--------------------------------</p>
+        <% end %>
+      </div>
+  </div>
+  </section>
+</main>
