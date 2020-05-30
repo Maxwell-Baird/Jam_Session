@@ -24,6 +24,12 @@ class SessionsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/'
+    flash[:success] = 'Logout Successful'
+  end
+
   private
 
   def spotify_info
