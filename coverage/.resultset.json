@@ -71,7 +71,7 @@
           null
         ]
       },
-      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/welcome_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/about_controller.rb": {
         "lines": [
           1,
           1,
@@ -86,6 +86,13 @@
           1,
           7,
           null,
+          null
+        ]
+      },
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/welcome_controller.rb": {
+        "lines": [
+          1,
+          1,
           null
         ]
       },
@@ -266,6 +273,6 @@
         }
       }
     },
-    "timestamp": 1590860091
+    "timestamp": 1590860411
   }
 }
