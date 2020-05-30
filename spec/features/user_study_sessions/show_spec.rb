@@ -23,7 +23,7 @@ RSpec.describe 'User stats', type: :feature do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit "/users/#{user.id}/statistics"
+    visit "/stats"
 
     expect(page).to have_content("Total time spent studying:\n30 minutes")
     expect(page).to have_content("Paired time spent studying:\n10 minutes")
