@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create]
 
   get '/dashboard', to: 'dashboard#index'
+  get '/about', to: 'about#index'
 end

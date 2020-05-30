@@ -1,0 +1,29 @@
+.about-page {
+  display: flex;
+  justify-content: center;
+}
+
+.about-title {
+  font-size: 2.5rem;
+}
+
+.about-section {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  width: 85%;
+}
+
+.dev-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.github-btn {
+  background-color: black;
+  border-radius: 6px;
+  box-shadow: 3px 4px 8px #22d05d;
+  color: #22d05d;
+  padding: 10px;
+  text-decoration: none;
+}
