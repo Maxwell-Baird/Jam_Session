@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= image_tag("https://www.whenthereshelpthereshope.com/wp-content/uploads/52265235_l.jpg", class: "welcome-bg") %>
     <nav>
       <div class="links">
         <%= link_to "Home", '/', class: "nav-link" %>
@@ -21,7 +22,6 @@
         <%= link_to "Logout", '/logout', class: "nav-link" %>
       </div>
     </nav>
-    <%= image_tag("https://www.whenthereshelpthereshope.com/wp-content/uploads/52265235_l.jpg", class: "welcome-bg") %>
     <%= yield %>
   </body>
 </html>
