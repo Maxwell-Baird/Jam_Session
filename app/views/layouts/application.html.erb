@@ -19,7 +19,9 @@
         <%= link_to "About", '/about', class: "nav-link" %>
       </div>
       <div>
-        <%= link_to "Logout", '/logout', class: "nav-link" %>
+        <% if current_user %>
+          <%= link_to 'Logout','/logout', method: :delete, class: 'nav-link' %>
+        <% end %>
       </div>
     </nav>
     <%= image_tag("https://www.whenthereshelpthereshope.com/wp-content/uploads/52265235_l.jpg", class: "welcome-bg") %>
