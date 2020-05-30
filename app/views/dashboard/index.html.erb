@@ -1,0 +1,3 @@
+<% if current_user %>
+  <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
+<% end %>
