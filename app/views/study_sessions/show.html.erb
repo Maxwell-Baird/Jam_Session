@@ -1,0 +1,49 @@
+<main class="welcome-page">
+  <section class='welcome-content'>
+  <h1> Topic: <%= @studySession.topic %> </h1>
+  <h2 id="counter"></h2>
+  <% if @studySession.paired == true %>
+    <p> You are currently paired </p>
+  <% else %>
+    <p> You are going solo </p>
+  <% end %>
+  <%= link_to 'End Session',  @studySession,  method: :delete,
+  data: {confirm: "Ending the session early will not allow it to count towards your statistics.\nAre you sure?" } %>
+  </section>
+
+<body>
+  <script type="text/javascript">
+    function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        var counter = document.getElementById("counter");
+        var current_minutes = mins-1
+        seconds--;
+        if( seconds < 1) {
+          if(current_minutes < 1){
+              counter.innerHTML = "You are DONE! "+"<a href='/'> Return To Home</a>";
+          }
+          else {
+            counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+            countdown(mins-1);
+          }
+        }
+        else {
+          counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+          if( seconds > 0 ) {
+              setTimeout(tick, 1000);
+          } else {
+              if(mins > 1){
+                  countdown(mins-1);
+              }
+          }
+        }
+    }
+    tick();
+  }
+countdown(<%= @studySession.duration %>);
+  </script>
+
+  </body>
+</main>
