@@ -58,7 +58,23 @@ describe "As a registered user when I am logged in" do
 
     expect(page).to have_content("Welcome #{@user.name}")
     expect(page).to have_content("E-Mail: bob@example.com")
+  end
 
+  it "I can leave field blank on my update form, which will revert to its original value once I submit it" do
+    @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
+
+    visit user_path(@user)
+
+    click_on 'Edit Profile'
+
+    fill_in 'user[name]', with: ""
+    fill_in 'user[email]', with: ""
+    click_on 'Update'
+
+    expect(current_path).to eql(user_path(@user))
+
+    expect(page).to have_content("Welcome #{@user.name}")
+    expect(page).to have_content("E-Mail: bob@bob.com")
   end
 
   it "I can delete my own user account, and redirect to the register page" do
