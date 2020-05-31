@@ -1,3 +1,0 @@
-<% if current_user && current_user.spotify_token.nil?%>
-  <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
-<% end %>
