@@ -86,6 +86,7 @@ describe "As a registered user when I am logged in" do
     click_on 'Delete Profile'
 
     expect(current_path).to eql(register_path)
+    expect(page).to have_content('Account Successfully Deleted')
     expect(User.last.id).to_not eql(@user.id)
   end
 end

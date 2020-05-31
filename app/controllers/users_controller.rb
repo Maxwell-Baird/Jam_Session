@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     session[:user_id] = nil
+    flash[:success] = 'Account Successfully Deleted'
     redirect_to '/register'
   end
 
