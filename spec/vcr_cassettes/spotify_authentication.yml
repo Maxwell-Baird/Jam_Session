@@ -35,7 +35,7 @@ http_interactions:
       Content-Length:
       - '63336'
       Age:
-      - '584798'
+      - '584800'
       Connection:
       - keep-alive
       Server:
@@ -43,7 +43,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Nf-Request-Id:
-      - d3b82652-2079-4aaf-a84d-21c1e2f2dd32-2596750
+      - d3b82652-2079-4aaf-a84d-21c1e2f2dd32-2597026
     body:
       encoding: ASCII-8BIT
       string: |
@@ -6621,7 +6621,7 @@ http_interactions:
             "author": "Tom Jackson"
           }
         ]
-  recorded_at: Mon, 01 Jun 2020 21:41:54 GMT
+  recorded_at: Mon, 01 Jun 2020 21:41:56 GMT
 - request:
     method: get
     uri: https://type.fit/api/quotes
@@ -6657,7 +6657,7 @@ http_interactions:
       Content-Length:
       - '63336'
       Age:
-      - '584799'
+      - '584800'
       Connection:
       - keep-alive
       Server:
@@ -6665,7 +6665,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Nf-Request-Id:
-      - d3b82652-2079-4aaf-a84d-21c1e2f2dd32-2596851
+      - d3b82652-2079-4aaf-a84d-21c1e2f2dd32-2597059
     body:
       encoding: ASCII-8BIT
       string: |
@@ -13243,7 +13243,7 @@ http_interactions:
             "author": "Tom Jackson"
           }
         ]
-  recorded_at: Mon, 01 Jun 2020 21:41:55 GMT
+  recorded_at: Mon, 01 Jun 2020 21:41:56 GMT
 - request:
     method: get
     uri: https://type.fit/api/quotes
@@ -13279,7 +13279,7 @@ http_interactions:
       Content-Length:
       - '63336'
       Age:
-      - '585081'
+      - '584800'
       Connection:
       - keep-alive
       Server:
@@ -13287,7 +13287,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Nf-Request-Id:
-      - d3b82652-2079-4aaf-a84d-21c1e2f2dd32-2649558
+      - d3b82652-2079-4aaf-a84d-21c1e2f2dd32-2597112
     body:
       encoding: ASCII-8BIT
       string: |
@@ -19865,5 +19865,5 @@ http_interactions:
             "author": "Tom Jackson"
           }
         ]
-  recorded_at: Mon, 01 Jun 2020 21:46:37 GMT
+  recorded_at: Mon, 01 Jun 2020 21:41:57 GMT
 recorded_with: VCR 6.0.0

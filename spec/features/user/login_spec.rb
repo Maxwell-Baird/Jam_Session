@@ -2,22 +2,24 @@ require 'rails_helper'
 
 RSpec.describe 'logging in' do
   it 'can log in with valid credentials' do
-    user = User.create( name: 'Pablo Dee',
-                        email: 'test@example.com',
-                        password: 'password')
+    VCR.use_cassette('quote_cassette') do
+      user = User.create( name: 'Pablo Dee',
+                          email: 'test@example.com',
+                          password: 'password')
 
-    visit '/'
+      visit '/'
 
-    click_on 'Login'
+      click_on 'Login'
 
-    expect(current_path).to eq('/login')
+      expect(current_path).to eq('/login')
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
 
-    click_on 'Log In'
+      click_on 'Log In'
 
-    expect(current_path).to eq('/dashboard')
+      expect(current_path).to eq('/dashboard')
+    end
   end
 
   it 'cannot log in with a bad password' do

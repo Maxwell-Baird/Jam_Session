@@ -10,6 +10,6 @@ RSpec.describe Quote, type: :model do
   it 'should fill in attribute if no author' do
     quote2 = Quote.new({text: "This is also a quote"})
     expect(quote2.text).to eq("This is also a quote")
-    expect(quote2.author).to eq("Author Unknown")
+    expect(quote2.author).to eq("Unknown Author")
   end
 end
