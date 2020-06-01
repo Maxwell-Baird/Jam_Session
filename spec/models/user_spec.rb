@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
       user.studySessions.create(topic: "Cheese", duration: 5, paired: false)
       user.studySessions.create(topic: "Books", duration: 5, paired: false)
       user.studySessions.create(topic: "Books", duration: 5, paired: false)
-      expect(user.total_time).to eq(30)
+      expect(user.total_time).to eq("00 hours and 30 minutes.")
     end
 
     it "can return paired time study" do
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
       user.studySessions.create(topic: "Cheese", duration: 5, paired: true)
       user.studySessions.create(topic: "Books", duration: 5, paired: true)
       user.studySessions.create(topic: "Books", duration: 5, paired: false)
-      expect(user.paired_time).to eq(15)
+      expect(user.paired_time).to eq("00 hours and 15 minutes.")
     end
 
     it "can return a topics time study" do
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
       user.studySessions.create(topic: "Cheese", duration: 5, paired: true)
       user.studySessions.create(topic: "Books", duration: 5, paired: true)
       user.studySessions.create(topic: "Books", duration: 5, paired: false)
-      expect(user.topic_time("Ruby")).to eq(10)
+      expect(user.topic_time("Ruby")).to eq("00 hours and 10 minutes.")
     end
 
     it "can return time related to topic while paired" do
@@ -56,7 +56,7 @@ RSpec.describe User, type: :model do
       user.studySessions.create(topic: "Cheese", duration: 5, paired: true)
       user.studySessions.create(topic: "Books", duration: 5, paired: true)
       user.studySessions.create(topic: "Books", duration: 5, paired: false)
-      expect(user.paired_topic_time("Ruby")).to eq(5)
+      expect(user.paired_topic_time("Ruby")).to eq("00 hours and 05 minutes.")
     end
 
     it "can return a integer that is a percent of global study time" do
@@ -69,14 +69,14 @@ RSpec.describe User, type: :model do
       user2.studySessions.create(topic: "Cheese", duration: 5, paired: true)
       user2.studySessions.create(topic: "Books", duration: 5, paired: true)
       user2.studySessions.create(topic: "Books", duration: 5, paired: false)
-      expect(user2.global_time).to eq(66)
+      expect(user2.global_time).to eq(66.67)
     end
 
     it 'can convert minutes into a hour string' do
       user1 = User.create(name: "bob", email: "faked", password: "password")
-      expect(user1.minutes_to_hours(65)).to eq("01:05")
-      expect(user1.minutes_to_hours(660)).to eq("11:00")
-      expect(user1.minutes_to_hours(5)).to eq("00:05")
+      expect(user1.minutes_to_hours(65)).to eq("01 hours and 05 minutes.")
+      expect(user1.minutes_to_hours(660)).to eq("11 hours and 00 minutes.")
+      expect(user1.minutes_to_hours(5)).to eq("00 hours and 05 minutes.")
     end
   end
 end

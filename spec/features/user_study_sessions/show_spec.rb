@@ -25,11 +25,11 @@ RSpec.describe 'User stats', type: :feature do
 
     visit "/stats"
 
-    expect(page).to have_content("Total time spent studying:\n30 minutes")
-    expect(page).to have_content("Paired time spent studying:\n10 minutes")
-    expect(page).to have_content("Web Statistics:\nYou make up 100% of the study time on the website")
-    expect(page).to have_content("Ruby\nTime spent studying: 10 minutes\nStudying while paired: 5 minutes")
-    expect(page).to have_content("Books\nTime spent studying: 10 minutes\nStudying while paired: 0 minutes")
+    expect(page).to have_content("Total time spent studying:\n00 hours and 30 minutes")
+    expect(page).to have_content("Paired time spent studying:\n00 hours and 10 minutes")
+    expect(page).to have_content("Web Statistics:\nYou make up 100.0% of the study time on the website")
+    expect(page).to have_content("Ruby\nTime spent studying: 00 hours and 10 minutes.\nStudying while paired: 00 hours and 05 minutes.")
+    expect(page).to have_content("Books\nTime spent studying: 00 hours and 10 minutes.\nStudying while paired: 00 hours and 00 minutes.")
 
   end
 end
