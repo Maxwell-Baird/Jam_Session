@@ -10,15 +10,18 @@ StudySession.destroy_all
 User.destroy_all
 
 
-user = User.create(
+user1 = User.create(
   name: 'Pablo D',
-  email: 'test@example.com',
+  email: 'user1@example.com',
   password: 'password'
 )
-user.studySessions.create(topic: "Ruby", duration: 5, paired: false)
-user.studySessions.create(topic: "Ruby", duration: 5, paired: true)
-user.studySessions.create(topic: "Cake", duration: 5, paired: true)
-user.studySessions.create(topic: "Cheese", duration: 5, paired: false)
-user.studySessions.create(topic: "Books", duration: 5, paired: false)
-user.studySessions.create(topic: "Books", duration: 5, paired: false)
-user2 = User.create(name: "Bob", email: 'user@example.com', password: 'password')
+user1.study_sessions.create(topic: "Ruby", duration: 50, paired: false)
+user1.study_sessions.create(topic: "Ruby", duration: 30, paired: true)
+user1.study_sessions.create(topic: "Cake", duration: 75, paired: true)
+user1.study_sessions.create(topic: "Cheese", duration: 15, paired: false)
+user1.study_sessions.create(topic: "Books", duration: 55, paired: false)
+user1.study_sessions.create(topic: "Books", duration: 55, paired: false)
+user2 = User.create(name: "Bob", email: 'user2@example.com', password: 'password')
+user2.study_sessions.create(topic: "Cake", duration: 85, paired: true)
+user2.study_sessions.create(topic: "Cheese", duration: 60, paired: false)
+user2.study_sessions.create(topic: "Books", duration: 45, paired: false)
