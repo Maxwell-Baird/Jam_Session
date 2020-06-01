@@ -319,46 +319,8 @@
           null,
           null
         ]
-      },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/mailers/application_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/channels/application_cable/channel.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1591047998
+    "timestamp": 1591049043
   }
 }
