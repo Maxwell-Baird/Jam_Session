@@ -6,7 +6,7 @@
 <%= link_to 'New Study Session', '/study_sessions/new', method: :get %>
 <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
 <p><%= link_to 'Delete Profile', "/users/#{@user.id}", method: :delete %></p>
-<% if current_user %>
+<% if current_user && current_user.spotify_token.nil? %>
   <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
 <% end %>
 
