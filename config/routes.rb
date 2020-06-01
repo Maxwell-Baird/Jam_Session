@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   resources :study_sessions
 
-
   get '/auth/spotify', as: 'spotify_login'
   get '/auth/:provider/callback', to: 'sessions#update'
 

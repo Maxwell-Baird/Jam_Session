@@ -1,18 +1,4 @@
-.column {
-  float: left;
-  width: 50%;
-  height: -webkit-fill-available;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-  height: -webkit-fill-available;
-}
-
-.stats-page {
+.user-page {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -20,11 +6,22 @@
   padding: 20px 0px 0px 0px;
 }
 
-.stats-content {
+.user-content {
   background-color: white;
   border-radius: 6px;
   box-shadow: 10px 10px 15px #22d05d;
   padding: 20px;
   text-align: center;
   width: 60%;
+}
+
+.user-btn {
+  border-radius: 7px;
+  background: black;
+  box-shadow: 5px 5px 7px #22d05d;
+  color: #22d05d;
+  font-size: 1rem;
+  height: 45px;
+  padding: 5px;
+  width: 150px;
 }

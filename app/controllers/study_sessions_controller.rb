@@ -1,11 +1,17 @@
 class StudySessionsController < ApplicationController
+  before_action :current_user!
+
+  def current_user!
+    four_oh_four unless current_user
+  end
+
   def new
     @studySession = StudySession.new
   end
 
   def create
     user = User.find(session[:user_id])
-    @studySession = user.studySessions.create(study_session_params)
+    @studySession = user.study_sessions.create(study_session_params)
     if @studySession.save
       redirect_to "/study_sessions/#{@studySession.id}"
     else

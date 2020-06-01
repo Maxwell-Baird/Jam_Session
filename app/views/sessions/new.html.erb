@@ -11,10 +11,8 @@
 
             <%= f.submit 'Log In' %>
       <% end %>
+      <h4>Or</h4>
+      <%= button_to "Login With Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
     </section>
   </div>
 </main>
-
-
-
-  <%= button_to "Register", "/register", class: "welcome-btn" %>
