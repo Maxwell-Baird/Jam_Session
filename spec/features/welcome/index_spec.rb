@@ -9,4 +9,13 @@ RSpec.describe 'As a visitor to Home Page' do
     expect(page).to have_button("Register")
     expect(page).to have_button("Login")
   end
+
+  it 'should redirect you if you are logged in' do
+    VCR.use_cassette('quote_cassette') do
+      user = User.create(name: "Sylvanis", email: 'windrunner@example.com', password: 'forthehorde')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit '/'
+      expect(current_path).to eq('/dashboard')
+    end
+  end
 end
