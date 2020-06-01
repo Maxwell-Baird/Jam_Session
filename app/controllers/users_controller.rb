@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def current_user!
+    four_oh_four unless current_user
+  end
+
   def new
     @user = User.new
   end
@@ -15,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    current_user!
     @user = User.find(params[:id])
   end
 
@@ -25,6 +31,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    current_user!
     @user = User.find(session[:user_id] || params[:id])
   end
 
