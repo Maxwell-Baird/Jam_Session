@@ -7,11 +7,13 @@ class User < ApplicationRecord
   has_secure_password
 
   def total_time
-    study_sessions.sum(:duration)
+    time = study_sessions.sum(:duration)
+    minutes_to_hours(time)
   end
 
   def paired_time
-    study_sessions.where(paired: true).sum(:duration)
+    time = study_sessions.where(paired: true).sum(:duration)
+    minutes_to_hours(time)
   end
 
   def topics
@@ -21,17 +23,28 @@ class User < ApplicationRecord
   end
 
   def topic_time(topic)
-    study_sessions.where(topic: topic).sum(:duration)
+    time = study_sessions.where(topic: topic).sum(:duration)
+    minutes_to_hours(time)
   end
 
   def paired_topic_time(topic)
-    study_sessions.where(topic: topic, paired: true).sum(:duration)
+    time = study_sessions.where(topic: topic, paired: true).sum(:duration)
+    minutes_to_hours(time)
   end
 
   def global_time
-    your_time = total_time * 100
+    your_time = study_sessions.sum(:duration) * 100
     global = StudySession.sum(:duration)
-    your_time / global
+    number = your_time / global.to_f
+    number.round(2)
+  end
+
+  def minutes_to_hours(minutes_params)
+    hours = minutes_params / 60
+    minutes = minutes_params % 60
+    hours_string = hours.to_s.rjust(2, "0")
+    minutes_string = minutes.to_s.rjust(2, "0")
+    "#{hours_string} hours and #{minutes_string} minutes."
   end
 
 end
