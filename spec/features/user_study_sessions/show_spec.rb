@@ -7,12 +7,12 @@ RSpec.describe 'User stats', type: :feature do
       email: 'test@example.com',
       password: 'password'
     )
-    user.studySessions.create(topic: "Ruby", duration: 5, paired: false)
-    user.studySessions.create(topic: "Ruby", duration: 5, paired: true)
-    user.studySessions.create(topic: "Cake", duration: 5, paired: true)
-    user.studySessions.create(topic: "Cheese", duration: 5, paired: false)
-    user.studySessions.create(topic: "Books", duration: 5, paired: false)
-    user.studySessions.create(topic: "Books", duration: 5, paired: false)
+    user.study_sessions.create(topic: "Ruby", duration: 5, paired: false)
+    user.study_sessions.create(topic: "Ruby", duration: 5, paired: true)
+    user.study_sessions.create(topic: "Cake", duration: 5, paired: true)
+    user.study_sessions.create(topic: "Cheese", duration: 5, paired: false)
+    user.study_sessions.create(topic: "Books", duration: 5, paired: false)
+    user.study_sessions.create(topic: "Books", duration: 5, paired: false)
     visit '/'
 
     click_on 'Login'

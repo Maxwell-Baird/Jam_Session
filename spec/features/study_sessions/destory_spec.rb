@@ -14,7 +14,7 @@ RSpec.describe 'destroy a study session' do
     click_on 'Log In'
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    session1 = user.studySessions.create(topic: "Cheese Making", duration: 4, paired: true)
+    session1 = user.study_sessions.create(topic: "Cheese Making", duration: 4, paired: true)
     visit '/study_sessions/new'
     fill_in 'Topic', with: 'Ruby'
     fill_in 'Duration', with: '2'

@@ -2,30 +2,30 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
-  has_many :studySessions
+  has_many :study_sessions
 
   has_secure_password
 
   def total_time
-    studySessions.sum(:duration)
+    study_sessions.sum(:duration)
   end
 
   def paired_time
-    studySessions.where(paired: true).sum(:duration)
+    study_sessions.where(paired: true).sum(:duration)
   end
 
   def topics
-    studySessions.all.map do |session|
+    study_sessions.all.map do |session|
       session.topic
     end.uniq
   end
 
   def topic_time(topic)
-    studySessions.where(topic: topic).sum(:duration)
+    study_sessions.where(topic: topic).sum(:duration)
   end
 
   def paired_topic_time(topic)
-    studySessions.where(topic: topic, paired: true).sum(:duration)
+    study_sessions.where(topic: topic, paired: true).sum(:duration)
   end
 
   def global_time
