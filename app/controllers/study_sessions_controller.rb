@@ -5,7 +5,7 @@ class StudySessionsController < ApplicationController
 
   def create
     user = User.find(session[:user_id])
-    @studySession = user.studySessions.create(study_session_params)
+    @studySession = user.study_sessions.create(study_session_params)
     if @studySession.save
       redirect_to "/study_sessions/#{@studySession.id}"
     else
