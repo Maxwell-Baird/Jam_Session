@@ -15,10 +15,10 @@ user = User.create(
   email: 'test@example.com',
   password: 'password'
 )
-user.studySessions.create(topic: "Ruby", duration: 5, paired: false)
-user.studySessions.create(topic: "Ruby", duration: 5, paired: true)
-user.studySessions.create(topic: "Cake", duration: 5, paired: true)
-user.studySessions.create(topic: "Cheese", duration: 5, paired: false)
-user.studySessions.create(topic: "Books", duration: 5, paired: false)
-user.studySessions.create(topic: "Books", duration: 5, paired: false)
+user.study_sessions.create(topic: "Ruby", duration: 5, paired: false)
+user.study_sessions.create(topic: "Ruby", duration: 5, paired: true)
+user.study_sessions.create(topic: "Cake", duration: 5, paired: true)
+user.study_sessions.create(topic: "Cheese", duration: 5, paired: false)
+user.study_sessions.create(topic: "Books", duration: 5, paired: false)
+user.study_sessions.create(topic: "Books", duration: 5, paired: false)
 user2 = User.create(name: "Bob", email: 'user@example.com', password: 'password')
