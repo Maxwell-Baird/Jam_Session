@@ -46,27 +46,25 @@ end
 
 
 describe "As a registered user when I am logged in" do
-  it "I can edit my profile information (No password update)" do
+  it "I can edit my profile information (No password update)", :vcr do
     @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
     visit '/'
     click_on 'Login'
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
-    VCR.use_cassette('quote_cassette', record: :new_episodes) do
-      click_on 'Log In'
+    click_on 'Log In'
 
-      visit user_path(@user)
+    visit user_path(@user)
 
-      click_on 'Edit Profile'
+    click_on 'Edit Profile'
 
-      fill_in 'user[email]', with: "bob@example.com"
-      click_on 'Update'
+    fill_in 'user[email]', with: "bob@example.com"
+    click_on 'Update'
 
-      expect(current_path).to eql(user_path(@user))
+    expect(current_path).to eql(user_path(@user))
 
-      expect(page).to have_content("Welcome #{@user.name}")
-      expect(page).to have_content("E-Mail: bob@example.com")
-    end
+    expect(page).to have_content("Welcome #{@user.name}")
+    expect(page).to have_content("E-Mail: bob@example.com")
   end
 
   it "I can leave field blank on my update form, which will revert to its original value once I submit it" do
