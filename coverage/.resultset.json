@@ -97,7 +97,11 @@
           1,
           null,
           1,
-          139,
+          189,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -117,10 +121,10 @@
           null,
           null,
           1,
-          12,
-          12,
-          11,
-          11,
+          15,
+          15,
+          14,
+          14,
           null,
           1,
           1,
@@ -154,6 +158,11 @@
       "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/users_controller.rb": {
         "lines": [
           1,
+          null,
+          1,
+          28,
+          null,
+          null,
           1,
           6,
           null,
@@ -171,16 +180,18 @@
           null,
           1,
           2,
-          null,
-          null,
-          1,
-          2,
-          2,
           2,
           null,
           null,
           1,
-          23,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          26,
+          26,
           null,
           null,
           1,
@@ -201,6 +212,12 @@
       "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/study_sessions_controller.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
+          16,
+          null,
+          null,
           1,
           6,
           null,
@@ -245,6 +262,11 @@
       "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/user_study_sessions_controller.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
+          1,
+          null,
           null,
           1,
           1,
@@ -292,6 +314,6 @@
         }
       }
     },
-    "timestamp": 1591025174
+    "timestamp": 1591033958
   }
 }

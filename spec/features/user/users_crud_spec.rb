@@ -46,6 +46,11 @@ end
 describe "As a registered user when I am logged in" do
   it "I can edit my profile information (No password update)" do
     @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
+    visit '/'
+    click_on 'Login'
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: @user.password
+    click_on 'Log In'
 
     visit user_path(@user)
 
@@ -62,6 +67,11 @@ describe "As a registered user when I am logged in" do
 
   it "I can leave field blank on my update form, which will revert to its original value once I submit it" do
     @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
+    visit '/'
+    click_on 'Login'
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: @user.password
+    click_on 'Log In'
 
     visit user_path(@user)
 
@@ -80,6 +90,11 @@ describe "As a registered user when I am logged in" do
   it "I can delete my own user account, and redirect to the register page" do
     @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
     @user2 = User.create(name: "Bobby", email: "bobby@bob.com", password: "abcd")
+    visit '/'
+    click_on 'Login'
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: @user.password
+    click_on 'Log In'
 
     visit user_path(@user)
 

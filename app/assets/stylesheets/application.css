@@ -17,3 +17,9 @@
 body {
   margin: 0px;
 }
+
+.error-flash {
+  padding: 10px;
+  background-color: red;
+  color: white;
+}
