@@ -71,5 +71,12 @@ RSpec.describe User, type: :model do
       user2.studySessions.create(topic: "Books", duration: 5, paired: false)
       expect(user2.global_time).to eq(66)
     end
+
+    it 'can convert minutes into a hour string' do
+      user1 = User.create(name: "bob", email: "faked", password: "password")
+      expect(user1.minutes_to_hours(65)).to eq("01:05")
+      expect(user1.minutes_to_hours(660)).to eq("11:00")
+      expect(user1.minutes_to_hours(5)).to eq("00:05")
+    end
   end
 end
