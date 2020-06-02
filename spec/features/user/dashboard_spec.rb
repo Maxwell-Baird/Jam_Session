@@ -14,7 +14,7 @@ describe "As a logged in user visiting my dashboard" do
     end
   end
 
-  it "I can click a link that takes me to a new study session" do
+  it "I can click a link that takes me to a new study session", :vcr do
     click_on 'New Study Session'
 
     fill_in :topic, with: 'Study Up'

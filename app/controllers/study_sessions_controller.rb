@@ -22,6 +22,7 @@ class StudySessionsController < ApplicationController
 
   def show
     @studySession = StudySession.find(params[:id])
+    @quote = SearchResults.new.get_quote
   end
 
   def destroy
