@@ -15,8 +15,7 @@ RSpec.describe "As a logged in user" , type: :feature do
           })
     end
 
-    it "My spotify token is saved to my account when I connect to spotify" do
-      VCR.use_cassette('spotify_authentication') do
+    it "My spotify token is saved to my account when I connect to spotify", :vcr do
         user = User.create( name: 'Pablo Dee',
                             email: 'test@example.com',
                             password: 'password')
@@ -33,11 +32,10 @@ RSpec.describe "As a logged in user" , type: :feature do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
         visit '/dashboard'
-      
+
         click_on 'Connect to Spotify'
 
         expect(user.spotify_token).to eq(ENV['SPOTIFY_TEMP_TOKEN'])
-      end
     end
   end
 end
