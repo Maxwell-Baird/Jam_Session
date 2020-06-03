@@ -1,20 +1,22 @@
 <main class="user-page">
   <section class='user-content'>
+    <h3>Quote of the Day from <%= @quote.author %>: </h3>
+    <p> <%= @quote.text %></p>
     <h1>Users Show Page</h1>
-    <h2>Welcome <%= @user.name %></h2>
+    <h2>Welcome <%= current_user.name %></h2>
 
-    <p>E-Mail: <%= @user.email %></p>
+    <p>E-Mail: <%= current_user.email %></p>
 
 <%= link_to 'New Study Session', '/study_sessions/new', method: :get %>
-<p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
-<p><%= link_to 'Delete Profile', "/users/#{@user.id}", method: :delete %></p>
+<p><%= link_to 'Edit Profile', edit_user_path(current_user) %></p>
+<p><%= link_to 'Delete Profile', "/users/#{current_user.id}", method: :delete %></p>
 <% if current_user && current_user.spotify_token.nil? %>
   <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
 <% end %>
 
-    <% if @user.study_sessions.present? %>
+    <% if current_user.study_sessions.present? %>
       <p>Previous Sessions</p>
-      <% @user.study_sessions.limit(3).each do |session| %>
+      <% current_user.study_sessions.limit(3).each do |session| %>
         <p>Topic: <%= session.topic %> //
         <%= session.duration %> mins</p>
         <%= button_to 'Repeat Session', "/study_sessions", method: :post, params:{id:session.id, topic:session.topic, duration:session.duration} %>

@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def show
     current_user!
-    @user = User.find(session[:user_id] || params[:id])
+    @quote = SearchResults.new.get_quote
   end
 
   def destroy
