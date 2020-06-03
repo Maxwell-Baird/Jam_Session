@@ -23,7 +23,7 @@ http_interactions:
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
-      - '203'
+      - '107'
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
@@ -33,15 +33,14 @@ http_interactions:
       Server:
       - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
       Date:
-      - Wed, 03 Jun 2020 17:32:18 GMT
+      - Wed, 03 Jun 2020 17:32:20 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"text":"Life a culmination of the past, an awareness of the present,
-        an indication of the future beyond knowledge, the quality that gives a touch
-        of divinity to matter.","author":"Charles A. Lindbergh"}'
-  recorded_at: Wed, 03 Jun 2020 17:32:18 GMT
+      string: '{"text":"Courage is going from failure to failure without losing enthusiasm.","author":"Winston
+        Churchill"}'
+  recorded_at: Wed, 03 Jun 2020 17:32:20 GMT
 - request:
     method: get
     uri: https://jam-session-ms.herokuapp.com/quote
@@ -65,7 +64,7 @@ http_interactions:
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
-      - '164'
+      - '67'
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
@@ -75,15 +74,13 @@ http_interactions:
       Server:
       - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
       Date:
-      - Wed, 03 Jun 2020 17:32:19 GMT
+      - Wed, 03 Jun 2020 17:32:21 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"text":"Never doubt that a small group of thoughtful, committed people
-        can change the world. Indeed. It is the only thing that ever has.","author":"Margaret
-        Mead"}'
-  recorded_at: Wed, 03 Jun 2020 17:32:19 GMT
+      string: '{"text":"Smile, breathe and go slowly.","author":"Thich Nhat Hanh"}'
+  recorded_at: Wed, 03 Jun 2020 17:32:21 GMT
 - request:
     method: get
     uri: https://jam-session-ms.herokuapp.com/quote
@@ -107,7 +104,7 @@ http_interactions:
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
-      - '189'
+      - '141'
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
@@ -117,13 +114,12 @@ http_interactions:
       Server:
       - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
       Date:
-      - Wed, 03 Jun 2020 17:32:19 GMT
+      - Wed, 03 Jun 2020 17:32:21 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"text":"Meditation brings wisdom; lack of mediation leaves ignorance.
-        Know well what leads you forward and what hold you back, and choose the path
-        that leads to wisdom.","author":"Buddha"}'
-  recorded_at: Wed, 03 Jun 2020 17:32:19 GMT
+      string: '{"text":"If you''re walking down the right path and you''re willing
+        to keep walking, eventually you''ll make progress.","author":"Barack Obama"}'
+  recorded_at: Wed, 03 Jun 2020 17:32:21 GMT
 recorded_with: VCR 6.0.0

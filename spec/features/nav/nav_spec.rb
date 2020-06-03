@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "As a logged in user" do
-  it 'should have links' do
-    VCR.use_cassette('quote_cassette') do
+  it 'should have links', :vcr do
       user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit '/'
@@ -11,7 +10,6 @@ RSpec.describe "As a logged in user" do
         expect(page).to have_link("Dashboard")
         expect(page).to have_link("Stats")
         expect(page).to have_link("About")
-      end
     end
   end
 end
