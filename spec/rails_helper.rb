@@ -21,7 +21,7 @@ end
 SimpleCov.start 'rails'
 
 SimpleCov.start do
-  # add_filter 'app/channels'
+  # add_filter for example: 'app/channels'
 end
 
 Shoulda::Matchers.configure do |config|
