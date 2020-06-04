@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  resources :study_sessions
+  patch '/study_sessions/:id/', to: 'study_sessions#update'
+  resources :study_sessions, except: [:edit, :update]
+
 
   get '/auth/spotify', as: 'spotify_login'
   get '/auth/:provider/callback', to: 'sessions#update'
