@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
     it "can return a integer that is a percent of global study time" do
       user1 = User.create(name: "bob", email: "faked", password: "password")
       user1.study_sessions.create(topic: "Ruby", duration: 15, paired: false)
-      user2 = User.create(name: "bob", email: "faked", password: "password")
+      user2 = User.create(name: "bob", email: "faked2", password: "password")
       user2.study_sessions.create(topic: "Ruby", duration: 5, paired: false)
       user2.study_sessions.create(topic: "Ruby", duration: 5, paired: true)
       user2.study_sessions.create(topic: "Cake", duration: 5, paired: false)

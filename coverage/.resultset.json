@@ -1,13 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/helpers/application_helper.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/models/study_session.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/models/study_session.rb": {
         "lines": [
           1,
           1,
@@ -23,14 +23,14 @@
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/models/application_record.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/models/user.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -84,14 +84,14 @@
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/controllers/about_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/about_controller.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/controllers/application_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -106,7 +106,7 @@
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/controllers/welcome_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/welcome_controller.rb": {
         "lines": [
           1,
           1,
@@ -117,7 +117,7 @@
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/controllers/users_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/users_controller.rb": {
         "lines": [
           1,
           null,
@@ -171,42 +171,29 @@
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/poros/search_results.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/poros/search_results.rb": {
         "lines": [
           1,
           1,
-          30,
-          null,
-          null,
-          1,
-          30,
-          30,
+          34,
+          34,
+          34,
           null,
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/services/quote_service.rb": {
-        "lines": [
-          1,
-          1,
-          30,
-          30,
-          null,
-          null
-        ]
-      },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/poros/quote.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/poros/quote.rb": {
         "lines": [
           1,
           1,
           1,
-          30,
-          30,
+          34,
+          34,
           null,
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/controllers/sessions_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/sessions_controller.rb": {
         "lines": [
           1,
           null,
@@ -254,7 +241,7 @@
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/controllers/study_sessions_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/study_sessions_controller.rb": {
         "lines": [
           1,
           1,
@@ -280,6 +267,7 @@
           null,
           1,
           4,
+          4,
           null,
           null,
           1,
@@ -304,7 +292,7 @@
           null
         ]
       },
-      "/Users/tronkat/Turing/BackEnd/Mod3/projects/Jam_Session/app/controllers/user_study_sessions_controller.rb": {
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/user_study_sessions_controller.rb": {
         "lines": [
           1,
           1,
@@ -321,6 +309,6 @@
         ]
       }
     },
-    "timestamp": 1591049043
+    "timestamp": 1591246919
   }
 }

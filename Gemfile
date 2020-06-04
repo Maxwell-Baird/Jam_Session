@@ -22,6 +22,8 @@ gem 'capybara'
 gem 'launchy'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt'
+gem "bullet"
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
