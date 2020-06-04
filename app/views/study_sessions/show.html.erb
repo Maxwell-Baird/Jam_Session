@@ -1,5 +1,7 @@
-<main class="welcome-page">
-  <section class='welcome-content'>
+<main class="study-page">
+  <div class="row">
+    <div class="column-left">
+  <section class='study-content'>
   <h3>Quote of the Day from <%= @quote.author %>: </h3>
   <p> <%= @quote.text %></p>
   <h1> Topic: <%= @studySession.topic %> </h1>
@@ -12,8 +14,9 @@
   <%= link_to 'End Session',  @studySession,  method: :delete,
   data: {confirm: "Ending the session early will not allow it to count towards your statistics.\nAre you sure?" } %>
   </section>
-<body>
+  </div>
 
+<div class ="column-right">
   <% if current_user && !current_user.spotify_token.nil?%>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <div class="w3-dropdown-hover">
@@ -22,71 +25,51 @@
         <% @playlists.each do |playlist| %>
           <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a> -
         <% end %>
-        <a href="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" target="search_iframe">Google</a>
+        <a href="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" target="search_iframe">Default</a>
       </div>
     </div>
   <% end %>
-
-
-<iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
+  <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
+</div>
+</main>
   <script type="text/javascript">
-    function countdown(seconds_params) {
-    if (seconds_params < 3600){
-      var hours = 0;
-    }else{
-      var hours = Math.floor(seconds_params / 3600);
-    }
-    if (seconds_params < 60){
-      var mins = 0;
-    }else{
-      var mins = Math.floor((seconds_params / 60 ) % 60) - 1;
-    }
-    if (((hours * 3600) + ( mins * 60)) == seconds_params){
-      var seconds = 60;
-    }else {
-      var seconds = seconds_params - (hours * 3600) - (mins*60);
-    }
-
+    function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes;
+    var hours = Math.floor((minutes - 1)  / 60);
     function tick() {
         var counter = document.getElementById("counter");
-        seconds --;
-        if( mins < 1) {
-          if(seconds < 1){
-            counter.innerHTML = "You are DONE! "+"<a href='/dashboard'> Return To Home</a>";
+        var current_minutes = (mins - 1) % 60
+        seconds--;
+        if( seconds < 1) {
+          if(current_minutes < 1 && hours < 1){
+              counter.innerHTML = "You are DONE! "+"<a href='/dashboard'> Return To Home</a>";
           }
           else {
-            counter.innerHTML = (hours < 10 ? "0" : "") + String(hours) + ":" +
-                                (mins < 10 ? "0" : "") +
-                                String(mins) + ":" +
+            counter.innerHTML = (hours < 10 ? "0" : "") + hours.toString() + ":" +
+                                (current_minutes < 10 ? "0" : "") +
+                                current_minutes.toString() + ":" +
                                 (seconds < 10 ? "0" : "") + String(seconds);
-            if (hours < 1){
-              setTimeout(tick, 1000);
-            }else{
-              hours --;
-              countdown((hours * 3600) + ((mins-1) * 60)+3600);
-            }
+            countdown(mins-1);
           }
         }
         else {
-          counter.innerHTML = (hours < 10 ? "0" : "") + String(hours) + ":" +
-                              (mins < 10 ? "0" : "") +
-                              String(mins) + ":" +
+          counter.innerHTML = (hours < 10 ? "0" : "") + hours.toString() + ":" +
+                              (current_minutes < 10 ? "0" : "") +
+                              current_minutes.toString() + ":" +
                               (seconds < 10 ? "0" : "") + String(seconds);
           if( seconds > 0 ) {
-            setTimeout(tick, 1000);
+              setTimeout(tick, 1000);
           } else {
-            if(mins >= 1){
-              countdown((hours * 3600) + ((mins-1) * 60));
-            }
+              if(mins > 1){
+                  countdown(mins-1);
+              }
           }
         }
 
     }
     tick();
   }
-  countdown(<%= @studySession.duration * 60 %>);
+  countdown(<%= @studySession.duration %>);
   </script>
-
-  </body>
-</main>

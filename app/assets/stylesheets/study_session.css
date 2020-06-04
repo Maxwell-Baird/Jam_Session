@@ -1,0 +1,41 @@
+.column-left {
+  float: left;
+  width: 60%;
+  height: -webkit-fill-available;
+}
+.column-right {
+  float: left;
+  width: 40%;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  height: -webkit-fill-available;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  height: -webkit-fill-available;
+}
+
+
+.study-page {
+  float: left;
+  width: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: -webkit-fill-available;
+  width: 100%;
+}
+
+
+.study-content {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 10px 10px 15px #22d05d;
+  padding: 20px;
+  text-align: center;
+  width: 60%;
+}

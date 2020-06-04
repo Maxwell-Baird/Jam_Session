@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  patch '/study_sessions/:id/', to: 'study_sessions#update'
-  resources :study_sessions, except: [:edit, :update]
+  resources :study_sessions
 
 
   get '/auth/spotify', as: 'spotify_login'
@@ -21,6 +20,5 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create]
 
   get '/dashboard', to: 'users#show'
-  post '/dashboard', to: 'users#test'
   get '/about', to: 'about#index'
 end
