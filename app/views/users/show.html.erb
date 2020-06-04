@@ -29,17 +29,11 @@
   <%= form_with(url: "/dashboard", method: "post") do %>
     <%= select_tag "playlist-select", options_from_collection_for_select(@playlists, "name", "name"), prompt: "Select Playlist" %>
       <%= submit_tag 'Play', id: 'play-button' %>
+      <% #on submit/change %>
   <% end %>
 <% end %>
 
-<script type="text/javascript">
-  let submitButton = document.querySelector("play-button");
-  submitButton.addEventListener("click", function(){
-    console.log('working')
-  });
-</script>
-
-<section id= "spotify-embedded">
+<section id="spotify-embedded">
   <% if @user_selection.nil? %>
     <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   <% elsif current_user && !current_user.spotify_token.nil?%>
@@ -48,3 +42,13 @@
     <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   <% end %>
 </section>
+
+<script type="text/javascript">
+  let iframe =
+  let submitButton = document.querySelector("#play-button");
+  submitButton.addEventListener("click", function(){
+
+  });
+</script>
+
+<iframe src="https://open.spotify.com/embed/playlist/365QyXGqBSak3huapdFuzZ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
