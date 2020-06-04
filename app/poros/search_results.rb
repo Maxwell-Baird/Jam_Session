@@ -4,4 +4,16 @@ class SearchResults
     quote_obj = JSON.parse(response.body, symbolize_names: true)
     @quote = Quote.new(quote_obj)
   end
+
+  def get_playlists(token)
+    conn = Faraday.new('https://jam-session-ms.herokuapp.com')
+    response = conn.get("/playlists/#{token}")
+    playlists_data = JSON.parse(response.body, symbolize_names: true)
+    @playlists = playlists_data[:items].map do |playlist_params|
+      Playlist.new({url: playlist_params[:external_urls][:spotify],
+                    name: playlist_params[:name],
+                    track_count: playlist_params[:tracks][:total]})
+    end
+    @playlists
+  end
 end
