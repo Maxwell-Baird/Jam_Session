@@ -25,9 +25,11 @@
   </section>
 </main>
 
-<%= form_with(url: "/dashboard", method: "post") do %>
-  <%= select_tag "playlist-select", options_from_collection_for_select(@playlists, "name", "name"), prompt: "Select Playlist" %>
-    <%= submit_tag 'Play', id: 'play-button' %>
+<% if current_user && !current_user.spotify_token.nil?%>
+  <%= form_with(url: "/dashboard", method: "post") do %>
+    <%= select_tag "playlist-select", options_from_collection_for_select(@playlists, "name", "name"), prompt: "Select Playlist" %>
+      <%= submit_tag 'Play', id: 'play-button' %>
+  <% end %>
 <% end %>
 
 <script type="text/javascript">
