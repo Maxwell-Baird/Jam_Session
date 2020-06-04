@@ -39,10 +39,6 @@ class StudySessionsController < ApplicationController
     redirect_to "/"
   end
 
-  def update
-    redirect_to controller: 'study_sessions', action: 'show', playlist_select: params["playlist-select"]
-  end
-
   private
 
   def study_session_params

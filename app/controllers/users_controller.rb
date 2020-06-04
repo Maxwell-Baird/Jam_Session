@@ -50,9 +50,6 @@ class UsersController < ApplicationController
     redirect_to '/register'
   end
 
-  def test
-    redirect_to controller: 'users', action: 'show', playlist_select: params["playlist-select"]
-  end
   private
 
   def user_params
