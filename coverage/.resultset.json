@@ -97,7 +97,7 @@
           1,
           null,
           1,
-          352,
+          422,
           null,
           null,
           1,
@@ -113,95 +113,6 @@
           21,
           3,
           null,
-          null,
-          null
-        ]
-      },
-      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/users_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          31,
-          null,
-          null,
-          1,
-          6,
-          null,
-          null,
-          1,
-          4,
-          4,
-          1,
-          1,
-          null,
-          3,
-          3,
-          null,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          2,
-          null,
-          null,
-          1,
-          29,
-          29,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          6,
-          null,
-          null
-        ]
-      },
-      "/Users/maxwellbaird/turing/module3/jam_session/app/poros/search_results.rb": {
-        "lines": [
-          1,
-          1,
-          30,
-          null,
-          null,
-          1,
-          30,
-          30,
-          null,
-          null
-        ]
-      },
-      "/Users/maxwellbaird/turing/module3/jam_session/app/services/quote_service.rb": {
-        "lines": [
-          1,
-          1,
-          30,
-          30,
-          null,
-          null
-        ]
-      },
-      "/Users/maxwellbaird/turing/module3/jam_session/app/poros/quote.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          30,
-          30,
           null,
           null
         ]
@@ -254,6 +165,105 @@
           null
         ]
       },
+      "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          30,
+          null,
+          null,
+          1,
+          6,
+          null,
+          null,
+          1,
+          4,
+          4,
+          1,
+          1,
+          null,
+          3,
+          3,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          28,
+          28,
+          28,
+          27,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          1,
+          null,
+          1,
+          6,
+          null,
+          null
+        ]
+      },
+      "/Users/maxwellbaird/turing/module3/jam_session/app/poros/search_results.rb": {
+        "lines": [
+          1,
+          1,
+          33,
+          32,
+          32,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/maxwellbaird/turing/module3/jam_session/app/poros/quote.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          32,
+          32,
+          null,
+          null
+        ]
+      },
       "/Users/maxwellbaird/turing/module3/jam_session/app/controllers/study_sessions_controller.rb": {
         "lines": [
           1,
@@ -279,6 +289,7 @@
           null,
           null,
           1,
+          4,
           4,
           null,
           null,
@@ -319,8 +330,35 @@
           null,
           null
         ]
+      },
+      "/Users/maxwellbaird/turing/module3/jam_session/app/poros/playlist.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1591060856
+    "timestamp": 1591288022
   }
 }
