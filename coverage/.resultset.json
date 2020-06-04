@@ -175,22 +175,9 @@
         "lines": [
           1,
           1,
-          30,
-          null,
-          null,
-          1,
-          30,
-          30,
-          null,
-          null
-        ]
-      },
-      "/Users/maxwellbaird/turing/module3/jam_session/app/services/quote_service.rb": {
-        "lines": [
-          1,
-          1,
-          30,
-          30,
+          34,
+          34,
+          34,
           null,
           null
         ]
@@ -200,8 +187,8 @@
           1,
           1,
           1,
-          30,
-          30,
+          34,
+          34,
           null,
           null
         ]
@@ -280,6 +267,7 @@
           null,
           1,
           4,
+          4,
           null,
           null,
           1,
@@ -321,6 +309,6 @@
         ]
       }
     },
-    "timestamp": 1591060856
+    "timestamp": 1591246919
   }
 }
