@@ -12,7 +12,7 @@ task :data => [:environment] do
       email: "user#{count}@example.com",
       password: 'password'
     )
-    100.times do
+    10.times do
       user.study_sessions.create(topic: "Ruby", duration: 50, paired: false)
       user.study_sessions.create(topic: "Ruby", duration: 30, paired: true)
       user.study_sessions.create(topic: "Cake", duration: 75, paired: true)
@@ -32,7 +32,7 @@ task :data => [:environment] do
     email: "massive@example.com",
     password: 'password'
   )
-  10000.times do
+  1000.times do
     user.study_sessions.create(topic: "Ruby", duration: 60, paired: false)
     user.study_sessions.create(topic: "Ruby", duration: 60, paired: true)
     user.study_sessions.create(topic: "Cake", duration: 60, paired: true)
