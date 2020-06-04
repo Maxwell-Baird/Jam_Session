@@ -32,7 +32,10 @@ class UsersController < ApplicationController
 
   def show
     current_user!
+    token = current_user.spotify_token
     @quote = SearchResults.new.get_quote
+    @playlists = SearchResults.new.get_playlists(token)
+    @user_selection = params["playlist-select"] 
   end
 
   def destroy
