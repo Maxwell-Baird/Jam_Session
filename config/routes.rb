@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create]
 
   get '/dashboard', to: 'users#show'
+  post '/dashboard', to: 'users#show'
   get '/about', to: 'about#index'
 end
