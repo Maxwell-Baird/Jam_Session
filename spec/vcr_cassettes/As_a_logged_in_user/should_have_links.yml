@@ -23,7 +23,7 @@ http_interactions:
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
-      - '155'
+      - '92'
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
@@ -33,13 +33,12 @@ http_interactions:
       Server:
       - WEBrick/1.4.2 (Ruby/2.5.3/2018-10-18)
       Date:
-      - Wed, 03 Jun 2020 17:32:20 GMT
+      - Wed, 03 Jun 2020 17:32:18 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"text":"Character is like a tree and reputation like a shadow. The
-        shadow is what we think of it; the tree is the real thing.","author":"Abraham
-        Lincoln"}'
-  recorded_at: Wed, 03 Jun 2020 17:32:20 GMT
+      string: '{"text":"Love is just a word until someone comes along and gives it
+        meaning.","author":null}'
+  recorded_at: Wed, 03 Jun 2020 17:32:18 GMT
 recorded_with: VCR 6.0.0
