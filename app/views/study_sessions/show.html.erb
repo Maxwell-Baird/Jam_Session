@@ -1,5 +1,7 @@
-<main class="welcome-page">
-  <section class='welcome-content'>
+<main class="study-page">
+  <div class="row">
+    <div class="column-left">
+  <section class='study-content'>
   <h3>Quote of the Day from <%= @quote.author %>: </h3>
   <p> <%= @quote.text %></p>
   <h1> Topic: <%= @studySession.topic %> </h1>
@@ -12,8 +14,25 @@
   <%= link_to 'End Session',  @studySession,  method: :delete,
   data: {confirm: "Ending the session early will not allow it to count towards your statistics.\nAre you sure?" } %>
   </section>
+  </div>
 
-<body>
+<div class ="column-right">
+  <% if current_user && !current_user.spotify_token.nil?%>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <div class="w3-dropdown-hover">
+      <button class="w3-button w3-black">Choose Playlist</button>
+      <div class="w3-dropdown-content w3-bar-block w3-border">
+        <% @playlists.each do |playlist| %>
+          <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a> -
+        <% end %>
+        <a href="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" target="search_iframe">Default</a>
+      </div>
+    </div>
+  <% end %>
+  <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
+</div>
+</main>
   <script type="text/javascript">
     function countdown(minutes) {
     var seconds = 60;
@@ -24,7 +43,7 @@
         var current_minutes = (mins - 1) % 60
         seconds--;
         if( seconds < 1) {
-          if(current_minutes < 1){
+          if(current_minutes < 1 && hours < 1){
               counter.innerHTML = "You are DONE! "+"<a href='/dashboard'> Return To Home</a>";
           }
           else {
@@ -52,8 +71,5 @@
     }
     tick();
   }
-countdown(<%= @studySession.duration %>);
+  countdown(<%= @studySession.duration %>);
   </script>
-
-  </body>
-</main>

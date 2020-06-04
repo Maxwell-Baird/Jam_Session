@@ -21,8 +21,16 @@ class StudySessionsController < ApplicationController
   end
 
   def show
+    token = current_user.spotify_token
     @studySession = StudySession.find(params[:id])
     @quote = SearchResults.new.get_quote
+    if !current_user.spotify_token.nil?
+      @playlists = SearchResults.new.get_playlists(token)
+      @user_selection = params["playlist_select"]
+      if @user_selection
+       @src = Playlist.selected_playlist(@playlists, @user_selection)
+      end
+    end
   end
 
   def destroy

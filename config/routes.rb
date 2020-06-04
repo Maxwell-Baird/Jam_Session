@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
+  # post 'dashboard/test', to: 'users#testing'
 
   get '/register', to: 'users#new'
   post '/register', to: 'users#create', as: :users
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
 
   resources :study_sessions
+
 
   get '/auth/spotify', as: 'spotify_login'
   get '/auth/:provider/callback', to: 'sessions#update'
