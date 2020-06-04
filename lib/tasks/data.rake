@@ -9,7 +9,7 @@ task :data => [:environment] do
     count += 1
     user = User.create(
       name: 'Pablo D',
-      email: "user#{count}@example.com",
+      email: "#{count}@example.com",
       password: 'password'
     )
     10.times do
