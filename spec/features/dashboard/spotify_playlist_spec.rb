@@ -21,8 +21,8 @@ RSpec.describe 'As a logged in user who is connected with spotify' do
 
       visit '/dashboard'
       select 'World of Warcraft calm music', :from => 'playlist-select'
-      click_on "Play This!"
-
+      click_on 'Play'
+      
       expect(current_path).to eq("/dashboard")
       within '#spotify-embedded' do
         expect(page).to have_content('World of Warcraft calm music')
