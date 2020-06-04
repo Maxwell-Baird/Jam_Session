@@ -24,3 +24,22 @@
     <% end %>
   </section>
 </main>
+
+<% if current_user && !current_user.spotify_token.nil?%>
+  <%= form_with(url: "/dashboard", method: "post") do %>
+    <%= select_tag "playlist-select", options_from_collection_for_select(@playlists, "name", "name"), prompt: "Select Playlist" %>
+      <%= submit_tag 'Play' %>
+  <% end %>
+<% end %>
+
+
+<section id= "spotify-embedded">
+  <% if @src && @src != "Placeholder" %>
+   <!-- elsif current_user && !current_user.spotify_token.nil? -->
+   <iframe src="<%= @src %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+   <% elsif @user_selection.nil? %>
+    <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  <% else %>
+    <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  <% end %>
+</section>

@@ -32,7 +32,15 @@ class UsersController < ApplicationController
 
   def show
     current_user!
+    token = current_user.spotify_token
     @quote = SearchResults.new.get_quote
+    if !current_user.spotify_token.nil?
+      @playlists = SearchResults.new.get_playlists(token)
+      @user_selection = params["playlist_select"]
+      if @user_selection
+       @src = Playlist.selected_playlist(@playlists, @user_selection)
+      end
+    end
   end
 
   def destroy
@@ -42,6 +50,9 @@ class UsersController < ApplicationController
     redirect_to '/register'
   end
 
+  def test
+    redirect_to controller: 'users', action: 'show', playlist_select: params["playlist-select"]
+  end
   private
 
   def user_params

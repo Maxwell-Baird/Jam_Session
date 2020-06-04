@@ -38,14 +38,4 @@ describe "As a logged in user visiting my dashboard" do
       expect(page).to have_content(session_3.topic)
     end
   end
-
-  it "I can click on a link by each previous session that creates a new, continued session" do
-
-  end
 end
-
-# As a user, when I visit /dashboard, I want to see the links to create a new study session.
-# Subtasks:
-#
-# Have a link that redirects to session/new
-# Have a list of links that each create session that is based on that a previous session
