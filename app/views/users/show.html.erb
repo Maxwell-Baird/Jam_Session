@@ -2,47 +2,40 @@
   <div class="row">
     <div class="column-left">
       <section class='user-content'>
-    <h3>Quote of the Day from <%= @quote.author %>: </h3>
-    <p> <%= @quote.text %></p>
-    <h1>Users Show Page</h1>
-    <h2>Welcome <%= current_user.name %></h2>
-
-    <p>E-Mail: <%= current_user.email %></p>
-
-<%= link_to 'New Study Session', '/study_sessions/new', method: :get %>
-<p><%= link_to 'Edit Profile', edit_user_path(current_user) %></p>
-<p><%= link_to 'Delete Profile', "/users/#{current_user.id}", method: :delete %></p>
-<% if current_user && current_user.spotify_token.nil? %>
-  <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
-<% end %>
-
-    <% if current_user.study_sessions.present? %>
-      <p>Previous Sessions</p>
-      <% current_user.study_sessions.limit(3).each do |session| %>
-        <p>Topic: <%= session.topic %> //
-        <%= session.duration %> mins</p>
-        <%= button_to 'Repeat Session', "/study_sessions", method: :post, params:{id:session.id, topic:session.topic, duration:session.duration} %>
-      <% end %>
-    <% end %>
-  </section>
-
-</div>
-  <div class ="column-right">
-    <% if current_user && !current_user.spotify_token.nil?%>
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-      <div class="w3-dropdown-hover">
-        <button class="w3-button w3-black">Choose Playlist</button>
-        <div class="w3-dropdown-content w3-bar-block w3-border">
-          <% @playlists.each do |playlist| %>
-            <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a> -
+        <h3>Quote of the Day from <%= @quote.author %>: </h3>
+        <p> <%= @quote.text %></p>
+        <h2>Welcome <%= current_user.name %></h2>
+        <p>E-Mail: <%= current_user.email %></p>
+        <%= link_to 'New Study Session', '/study_sessions/new', method: :get %>
+        <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+        <%= link_to 'Delete Profile', "/users/#{current_user.id}", method: :delete %>
+        <% if current_user && current_user.spotify_token.nil? %>
+          <%= button_to "Connect to Spotify", spotify_login_path, class: "welcome-btn", method: :get %>
+        <% end %>
+        <% if current_user.study_sessions.present? %>
+          <p>Previous Sessions</p>
+          <% current_user.study_sessions.limit(3).each do |session| %>
+            <p>Topic: <%= session.topic %> //
+            <%= session.duration %> mins</p>
+            <%= button_to 'Repeat Session', "/study_sessions", method: :post, params:{id:session.id, topic:session.topic, duration:session.duration} %>
           <% end %>
-          <a href="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" target="search_iframe">Default</a>
-        </div>
-      </div>
-    <% end %>
-
-
-    <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <% end %>
+      </section>
+    </div>
+    <div class ="column-right">
+      <% if current_user && !current_user.spotify_token.nil? %>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+          <div class="w3-dropdown-hover">
+            <button class="w3-button w3-black">Choose Playlist</button>
+              <div class="w3-dropdown-content w3-bar-block w3-border">
+                <% @playlists.each do |playlist| %>
+                  <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a> -
+                <% end %>
+              <a href="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" target="search_iframe">Default</a>
+            </div>
+          </div>
+      <% end %>
+      <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   </div>
 </main>
