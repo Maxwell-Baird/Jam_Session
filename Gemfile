@@ -22,7 +22,7 @@ gem 'capybara'
 gem 'launchy'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt'
-gem "bullet"
+gem 'bullet'
 
 
 group :development, :test do
