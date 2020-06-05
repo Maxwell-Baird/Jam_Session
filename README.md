@@ -49,7 +49,8 @@ Once you have obtained an API key and enabled the API:
 
 ### Daily Quote API
 
-
+This API was an additional consumption, it is a very simple API and does not require any keys or ID's.
+https://type.fit/api/quotes
 
 ## Test Suite
 
