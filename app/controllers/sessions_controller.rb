@@ -15,17 +15,10 @@ class SessionsController < ApplicationController
   end
 
   def update
-    expires = Time.now + 3600
     if current_user
-      current_user.update(uid: spotify_info['uid'],
-                  spotify_token: spotify_info['credentials']['token'],
-                  refresh_token: spotify_info['credentials']['refresh_token'],
-                  token_expiration: expires)
+      update_current_user(spotify_info)
     elsif user = User.find_by(uid: :spotify_info['uid'])
-      session[:user_id] = user.id
-      user.update(spotify_token: spotify_info['credentials']['token'],
-                  refresh_token: spotify_info['credentials']['refresh_token'],
-                  token_expiration: expires)
+      update_user(spotify_info)
     end
     redirect_to dashboard_path
   end
@@ -40,5 +33,20 @@ class SessionsController < ApplicationController
 
   def spotify_info
     request.env['omniauth.auth']
+  end
+
+  def update_current_user(response_info)
+    expires = Time.now + 3600
+    current_user.update(uid: response_info['uid'],
+                spotify_token: response_info['credentials']['token'],
+                refresh_token: response_info['credentials']['refresh_token'],
+                token_expiration: expires)
+  end
+
+  def update_user(response_info)
+    session[:user_id] = user.id
+    user.update(spotify_token: response_info['credentials']['token'],
+                refresh_token: response_info['credentials']['refresh_token'],
+                token_expiration: expires)
   end
 end

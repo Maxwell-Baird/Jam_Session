@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def current_user!
-    four_oh_four unless current_user
-  end
-
   def new
     @user = User.new
   end
@@ -32,15 +28,8 @@ class UsersController < ApplicationController
 
   def show
     current_user!
-    token = current_user.spotify_token
     @quote = SearchResults.new.get_quote
-    if !current_user.spotify_token.nil?
-      @playlists = SearchResults.new.get_playlists(token)
-      @user_selection = params["playlist_select"]
-      if @user_selection
-       @src = Playlist.selected_playlist(@playlists, @user_selection)
-      end
-    end
+    @playlists = playlist_handler
   end
 
   def destroy
@@ -54,5 +43,16 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password)
+  end
+
+  def playlist_handler
+    token = current_user.spotify_token
+    if current_user.spotify_token.present?
+      @playlists = SearchResults.new.get_playlists(token)
+    end
+  end
+
+  def current_user!
+    four_oh_four unless current_user
   end
 end
