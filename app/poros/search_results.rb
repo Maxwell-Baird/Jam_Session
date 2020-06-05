@@ -11,8 +11,7 @@ class SearchResults
     playlists_data = JSON.parse(response.body, symbolize_names: true)
     @playlists = playlists_data[:items].map do |playlist_params|
       Playlist.new({url: playlist_params[:external_urls][:spotify],
-                    name: playlist_params[:name],
-                    track_count: playlist_params[:tracks][:total]})
+                    name: playlist_params[:name]})
     end
     @playlists
   end
