@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'logging in' do
   it 'can log in with valid credentials' do
     VCR.use_cassette('quote_cassette') do
-      user = User.create( name: 'Pablo Dee',
-                          email: 'test@example.com',
-                          password: 'password')
+      user = User.create(name: 'Pablo Dee',
+                         email: 'test@example.com',
+                         password: 'password')
 
       visit '/'
 
@@ -23,9 +25,9 @@ RSpec.describe 'logging in' do
   end
 
   it 'cannot log in with a bad password' do
-    user = User.create( name: 'Pablo Dee',
-                        email: 'test@example.com',
-                        password: 'password')
+    user = User.create(name: 'Pablo Dee',
+                       email: 'test@example.com',
+                       password: 'password')
 
     visit '/'
 

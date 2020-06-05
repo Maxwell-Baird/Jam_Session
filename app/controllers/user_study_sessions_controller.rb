@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserStudySessionsController < ApplicationController
   before_action :current_user!
 
@@ -8,5 +10,4 @@ class UserStudySessionsController < ApplicationController
   def show
     @user = User.find(session[:user_id])
   end
-
 end

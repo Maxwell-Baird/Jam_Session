@@ -1,42 +1,44 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "As a guest user" do
-  it "I can register as a new user and see my info on my users show page" do
+describe 'As a guest user' do
+  it 'I can register as a new user and see my info on my users show page' do
     VCR.use_cassette('quote_cassette') do
       visit '/register'
 
-      fill_in 'Name', with: "New Name"
-      fill_in 'Email', with: "user@example.com"
-      fill_in 'Password', with: "password"
+      fill_in 'Name', with: 'New Name'
+      fill_in 'Email', with: 'user@example.com'
+      fill_in 'Password', with: 'password'
       click_on 'Register'
 
       @user = User.last
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content('Welcome New Name')
-      expect(@user.name).to eq("New Name")
-      expect(@user.email).to eq("user@example.com")
+      expect(@user.name).to eq('New Name')
+      expect(@user.email).to eq('user@example.com')
     end
   end
 
-  it "I see a flash message if I incorrectly fill out the form, and redirect to the register form" do
+  it 'I see a flash message if I incorrectly fill out the form, and redirect to the register form' do
     visit '/register'
 
-    fill_in 'Name', with: "New Name"
-    fill_in 'Email', with: "user@example.com"
+    fill_in 'Name', with: 'New Name'
+    fill_in 'Email', with: 'user@example.com'
     click_on 'Register'
 
     expect(current_path).to eq('/register')
     expect(page).to have_content("Password can't be blank")
 
-    fill_in 'Name', with: "New Name"
-    fill_in 'Password', with: "password"
+    fill_in 'Name', with: 'New Name'
+    fill_in 'Password', with: 'password'
     click_on 'Register'
 
     expect(current_path).to eq('/register')
     expect(page).to have_content("Email can't be blank")
 
-    fill_in 'Email', with: "user@example.com"
-    fill_in 'Password', with: "password"
+    fill_in 'Email', with: 'user@example.com'
+    fill_in 'Password', with: 'password'
     click_on 'Register'
 
     expect(current_path).to eq('/register')
@@ -44,10 +46,9 @@ describe "As a guest user" do
   end
 end
 
-
-describe "As a registered user when I am logged in" do
-  it "I can edit my profile information (No password update)", :vcr do
-    @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
+describe 'As a registered user when I am logged in' do
+  it 'I can edit my profile information (No password update)', :vcr do
+    @user = User.create(name: 'Bob', email: 'bob@bob.com', password: 'abcd')
     visit '/'
     click_on 'Login'
     fill_in 'Email', with: @user.email
@@ -58,18 +59,18 @@ describe "As a registered user when I am logged in" do
 
     click_on 'Edit Profile'
 
-    fill_in 'user[email]', with: "bob@example.com"
+    fill_in 'user[email]', with: 'bob@example.com'
     click_on 'Update'
 
     expect(current_path).to eql(user_path(@user))
 
     expect(page).to have_content("Welcome #{@user.name}")
-    expect(page).to have_content("E-Mail: bob@example.com")
+    expect(page).to have_content('E-Mail: bob@example.com')
   end
 
-  it "I can leave field blank on my update form, which will revert to its original value once I submit it" do
+  it 'I can leave field blank on my update form, which will revert to its original value once I submit it' do
     VCR.use_cassette('quote_cassette') do
-      @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
+      @user = User.create(name: 'Bob', email: 'bob@bob.com', password: 'abcd')
       visit '/'
       click_on 'Login'
       fill_in 'Email', with: @user.email
@@ -80,20 +81,20 @@ describe "As a registered user when I am logged in" do
 
       click_on 'Edit Profile'
 
-      fill_in 'user[name]', with: ""
-      fill_in 'user[email]', with: ""
+      fill_in 'user[name]', with: ''
+      fill_in 'user[email]', with: ''
       click_on 'Update'
 
       expect(current_path).to eql(user_path(@user))
 
       expect(page).to have_content("Welcome #{@user.name}")
-      expect(page).to have_content("E-Mail: bob@bob.com")
+      expect(page).to have_content('E-Mail: bob@bob.com')
     end
   end
 
-  it "I can delete my own user account, and redirect to the register page" do
-    @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
-    @user2 = User.create(name: "Bobby", email: "bobby@bob.com", password: "abcd")
+  it 'I can delete my own user account, and redirect to the register page' do
+    @user = User.create(name: 'Bob', email: 'bob@bob.com', password: 'abcd')
+    @user2 = User.create(name: 'Bobby', email: 'bobby@bob.com', password: 'abcd')
     VCR.use_cassette('quote_cassette') do
       visit '/'
       click_on 'Login'

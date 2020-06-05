@@ -1,11 +1,11 @@
-class SessionsController < ApplicationController
+# frozen_string_literal: true
 
-  def new
-  end
+class SessionsController < ApplicationController
+  def new; end
 
   def create
     user = User.find_by(email: params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
@@ -18,9 +18,9 @@ class SessionsController < ApplicationController
     expires = Time.now + 3600
     if current_user
       current_user.update(uid: spotify_info['uid'],
-                  spotify_token: spotify_info['credentials']['token'],
-                  refresh_token: spotify_info['credentials']['refresh_token'],
-                  token_expiration: expires)
+                          spotify_token: spotify_info['credentials']['token'],
+                          refresh_token: spotify_info['credentials']['refresh_token'],
+                          token_expiration: expires)
     elsif user = User.find_by(uid: :spotify_info['uid'])
       session[:user_id] = user.id
       user.update(spotify_token: spotify_info['credentials']['token'],

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Playlist
   attr_reader :url, :name, :track_count
 
@@ -12,8 +14,8 @@ class Playlist
       selection == playlist.name
     end
     if playlist.nil?
-      playlist = playlists.find do |playlist|
-        selection == "Jamz"
+      playlist = playlists.find do |_playlist|
+        selection == 'Jamz'
       end
     end
     playlist.url

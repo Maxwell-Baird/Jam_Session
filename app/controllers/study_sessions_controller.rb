@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StudySessionsController < ApplicationController
   before_action :current_user!
 
@@ -16,7 +18,7 @@ class StudySessionsController < ApplicationController
       redirect_to "/study_sessions/#{@studySession.id}"
     else
       flash[:error] = @studySession.errors.full_messages.to_sentence
-      redirect_to "/study_sessions/new"
+      redirect_to '/study_sessions/new'
     end
   end
 
@@ -24,11 +26,11 @@ class StudySessionsController < ApplicationController
     token = current_user.spotify_token
     @studySession = StudySession.find(params[:id])
     @quote = SearchResults.new.get_quote
-    if !current_user.spotify_token.nil?
+    unless current_user.spotify_token.nil?
       @playlists = SearchResults.new.get_playlists(token)
-      @user_selection = params["playlist_select"]
+      @user_selection = params['playlist_select']
       if @user_selection
-       @src = Playlist.selected_playlist(@playlists, @user_selection)
+        @src = Playlist.selected_playlist(@playlists, @user_selection)
       end
     end
   end
@@ -36,7 +38,7 @@ class StudySessionsController < ApplicationController
   def destroy
     @studySession = StudySession.find(params[:id])
     @studySession.destroy
-    redirect_to "/"
+    redirect_to '/'
   end
 
   private
@@ -45,11 +47,7 @@ class StudySessionsController < ApplicationController
     study_session_params = {}
     study_session_params[:topic] = params[:topic]
     study_session_params[:duration] = params[:duration].to_i
-    if params[:paired] == "1"
-      study_session_params[:paired] = true
-    else
-      study_session_params[:paired] = false
-    end
+    study_session_params[:paired] = params[:paired] == '1'
     study_session_params
   end
 end

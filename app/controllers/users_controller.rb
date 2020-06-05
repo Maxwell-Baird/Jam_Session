@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
+class UsersController < ApplicationController
   def current_user!
     four_oh_four unless current_user
   end
@@ -34,11 +35,11 @@ class UsersController < ApplicationController
     current_user!
     token = current_user.spotify_token
     @quote = SearchResults.new.get_quote
-    if !current_user.spotify_token.nil?
+    unless current_user.spotify_token.nil?
       @playlists = SearchResults.new.get_playlists(token)
-      @user_selection = params["playlist_select"]
+      @user_selection = params['playlist_select']
       if @user_selection
-       @src = Playlist.selected_playlist(@playlists, @user_selection)
+        @src = Playlist.selected_playlist(@playlists, @user_selection)
       end
     end
   end
