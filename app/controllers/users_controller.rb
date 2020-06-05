@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00476c045db0d441ca862744932b4496dd82b328
 class UsersController < ApplicationController
 
   def new
