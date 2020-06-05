@@ -2,9 +2,13 @@
   <div class="row">
     <div class="column-left">
       <section class='user-content'>
-    <h3>Quote of the Day from <%= @quote.author %>: </h3>
-    <p> <%= @quote.text %></p>
-    <h1>Users Show Page</h1>
+          <h3>Quote of the Day from <%= @quote.author %>: </h3>
+          <p> <%= @quote.text %></p>
+        </section>
+      </div>
+    <div class="column-center">
+      <section class='user-content'>
+    <h1>Dashboard</h1>
     <h2>Welcome <%= current_user.name %></h2>
 
     <p>E-Mail: <%= current_user.email %></p>
@@ -25,23 +29,18 @@
       <% end %>
     <% end %>
   </section>
-
 </div>
   <div class ="column-right">
     <% if current_user && !current_user.spotify_token.nil?%>
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-      <div class="w3-dropdown-hover">
-        <button class="w3-button w3-black">Choose Playlist</button>
-        <div class="w3-dropdown-content w3-bar-block w3-border">
-          <% @playlists.each do |playlist| %>
-            <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a> -
+      <div class="dropdown">
+      <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">  <% @playlists.each do |playlist| %>
+            <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a>
           <% end %>
           <a href="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" target="search_iframe">Default</a>
         </div>
       </div>
     <% end %>
-
-
     <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   </div>
