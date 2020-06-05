@@ -1,10 +1,15 @@
-<main class="study-page">
+<main class="user-page">
   <div class="row">
     <div class="column-left">
-  <section class='study-content'>
-  <h3>Quote of the Day from <%= @quote.author %>: </h3>
-  <p> <%= @quote.text %></p>
-  <h1> Topic: <%= @studySession.topic %> </h1>
+      <section class='user-content'>
+          <h3>Quote of the Day from <%= @quote.author %>: </h3>
+          <p> <%= @quote.text %></p>
+        </section>
+      </div>
+
+    <div class="column-center">
+  <section class='user-content'>
+    <h1> Topic: <%= @studySession.topic %> </h1>
   <h2 id="counter"></h2>
   <% if @studySession.paired == true %>
     <p> You are currently paired </p>
@@ -17,59 +22,22 @@
   </div>
 
 <div class ="column-right">
+
   <% if current_user && !current_user.spotify_token.nil?%>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <div class="w3-dropdown-hover">
-      <button class="w3-button w3-black">Choose Playlist</button>
-      <div class="w3-dropdown-content w3-bar-block w3-border">
-        <% @playlists.each do |playlist| %>
-          <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a> -
+    <div class="dropdown">
+    <button class="dropbtn">Dropdown</button>
+      <div class="dropdown-content">  <% @playlists.each do |playlist| %>
+          <a href="<%= playlist.url %>" target="search_iframe"><%= playlist.name %></a>
         <% end %>
         <a href="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" target="search_iframe">Default</a>
       </div>
     </div>
   <% end %>
-  <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-</div>
-</div>
-</main>
-  <script type="text/javascript">
-    function countdown(minutes) {
-    var seconds = 60;
-    var mins = minutes;
-    var hours = Math.floor((minutes - 1)  / 60);
-    function tick() {
-        var counter = document.getElementById("counter");
-        var current_minutes = (mins - 1) % 60
-        seconds--;
-        if( seconds < 1) {
-          if(current_minutes < 1 && hours < 1){
-              counter.innerHTML = "You are DONE! "+"<a href='/dashboard'> Return To Home</a>";
-          }
-          else {
-            counter.innerHTML = (hours < 10 ? "0" : "") + hours.toString() + ":" +
-                                (current_minutes < 10 ? "0" : "") +
-                                current_minutes.toString() + ":" +
-                                (seconds < 10 ? "0" : "") + String(seconds);
-            countdown(mins-1);
-          }
-        }
-        else {
-          counter.innerHTML = (hours < 10 ? "0" : "") + hours.toString() + ":" +
-                              (current_minutes < 10 ? "0" : "") +
-                              current_minutes.toString() + ":" +
-                              (seconds < 10 ? "0" : "") + String(seconds);
-          if( seconds > 0 ) {
-              setTimeout(tick, 1000);
-          } else {
-              if(mins > 1){
-                  countdown(mins-1);
-              }
-          }
-        }
+  <iframe src="https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W" name="search_iframe" width=100% height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-    }
-    tick();
-  }
+  </div>
+  </div>
+</main>
+<script type="text/javascript">
   countdown(<%= @studySession.duration %>);
-  </script>
+</script>
