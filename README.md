@@ -47,6 +47,11 @@ Once you have obtained an API key and enabled the API:
 1. This will create the file `config/application.yml`. Open that file.
 1. Append the following to that file: `SPOTIFY_CLIENT_ID_1: <your client_id>`, and on a new line, `SPOTIFY_CLIENT_SECRET_1: <your client_secret>`
 
+### Spotify OAuth
+This app uses Spotify OAuth. 
+1. Sign into your Spotify account on the [developer dashboard page](https://developer.spotify.com/dashboard/login) to obtain a client_id and client_secret.
+1. Open your `config/application.yml` file and add `SPOTIFY_CLIENT_ID_1: <YOUR CLIENT ID>` and `SPOTIFY_SECRET_1: <YOUR_CLIENT_SECRET>`
+
 ### Daily Quote API
 
 This API was an additional consumption, it is a very simple API and does not require any keys or ID's.
