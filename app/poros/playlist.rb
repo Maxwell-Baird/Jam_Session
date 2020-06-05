@@ -11,11 +11,6 @@ class Playlist
     playlist = playlists.find do |playlist|
       selection == playlist.name
     end
-    if playlist.nil?
-      playlist = playlists.find do |playlist|
-        selection == "Jamz"
-      end
-    end
     playlist.url
   end
 end
