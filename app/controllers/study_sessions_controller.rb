@@ -3,10 +3,6 @@
 class StudySessionsController < ApplicationController
   before_action :current_user!
 
-  def current_user!
-    four_oh_four unless current_user
-  end
-
   def new
     @studySession = StudySession.new
   end
@@ -23,12 +19,9 @@ class StudySessionsController < ApplicationController
   end
 
   def show
-    token = current_user.spotify_token
     @studySession = StudySession.find(params[:id])
     @quote = SearchResults.new.get_quote
-    unless current_user.spotify_token.nil?
-      @playlists = SearchResults.new.get_playlists(token)
-    end
+    playlist_handler
   end
 
   def destroy
@@ -40,10 +33,26 @@ class StudySessionsController < ApplicationController
   private
 
   def study_session_params
-    study_session_params = {}
-    study_session_params[:topic] = params[:topic]
-    study_session_params[:duration] = params[:duration].to_i
-    study_session_params[:paired] = params[:paired] == '1'
-    study_session_params
+    paired_param_converter(params)
+    params[:duration] = params[:duration].to_i
+    params.permit(:topic, :duration, :paired)
+  end
+
+  def paired_param_converter(params)
+    if params[:paired] == "1"
+      params[:paired] = true
+    else
+      params[:paired] = false
+    end
+  end
+
+  def playlist_handler
+    if current_user.spotify_token.present?
+      @playlists = SearchResults.new.get_playlists(current_user.spotify_token)
+    end
+  end
+
+  def current_user!
+    four_oh_four unless current_user
   end
 end

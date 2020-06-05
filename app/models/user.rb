@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
-  has_many :study_sessions
+  has_many :study_sessions, dependent: :destroy
 
   has_secure_password
 
