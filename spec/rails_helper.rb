@@ -88,6 +88,7 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
   config.hook_into :webmock
+  config.allow_http_connections_when_no_cassette = true
   config.filter_sensitive_data('<SPOTIFY-CLIENT-TOKEN-1>') { ENV['SPOTIFY_CLIENT_ID_1'] }
   config.filter_sensitive_data('<SPOTIFY-TOKEN>') { ENV['SPOTIFY-TOKEN'] }
   config.configure_rspec_metadata!
