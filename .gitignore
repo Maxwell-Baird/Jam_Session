@@ -13,7 +13,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+/spec/vcr_cassettes/
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
