@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
 
   has_many :study_sessions, dependent: :destroy
 
