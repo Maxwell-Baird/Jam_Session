@@ -37,10 +37,6 @@ class UsersController < ApplicationController
     @quote = SearchResults.new.get_quote
     unless current_user.spotify_token.nil?
       @playlists = SearchResults.new.get_playlists(token)
-      @user_selection = params['playlist_select']
-      if @user_selection
-        @src = Playlist.selected_playlist(@playlists, @user_selection)
-      end
     end
   end
 

@@ -7,7 +7,14 @@ RSpec.describe 'create a new study session' do
     VCR.use_cassette('quote_cassette') do
       user = User.create(name: 'Pablo Dee',
                          email: 'test@example.com',
-                         password: 'password')
+                         password: 'password',
+                         spotify_token: "token")
+     Playlist.any_instance.stub(:url).and_return("https://open.spotify.com/embed/playlist/2qo6t4Qxc8F4fmr7cHpV8W")
+     Playlist.any_instance.stub(:name).and_return("test")
+     Playlist.any_instance.stub(:initialize).and_return('test')
+     playlist = Playlist.new("test")
+     SearchResults.any_instance.stub(:get_playlists).and_return([playlist])
+     
       visit '/'
 
       click_on 'Login'
