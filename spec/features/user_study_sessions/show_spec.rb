@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'User stats', type: :feature do
@@ -8,12 +10,12 @@ RSpec.describe 'User stats', type: :feature do
         email: 'test@example.com',
         password: 'password'
       )
-      user.study_sessions.create(topic: "Ruby", duration: 5, paired: false)
-      user.study_sessions.create(topic: "Ruby", duration: 5, paired: true)
-      user.study_sessions.create(topic: "Cake", duration: 5, paired: true)
-      user.study_sessions.create(topic: "Cheese", duration: 5, paired: false)
-      user.study_sessions.create(topic: "Books", duration: 5, paired: false)
-      user.study_sessions.create(topic: "Books", duration: 5, paired: false)
+      user.study_sessions.create(topic: 'Ruby', duration: 5, paired: false)
+      user.study_sessions.create(topic: 'Ruby', duration: 5, paired: true)
+      user.study_sessions.create(topic: 'Cake', duration: 5, paired: true)
+      user.study_sessions.create(topic: 'Cheese', duration: 5, paired: false)
+      user.study_sessions.create(topic: 'Books', duration: 5, paired: false)
+      user.study_sessions.create(topic: 'Books', duration: 5, paired: false)
       visit '/'
 
       click_on 'Login'
@@ -24,7 +26,7 @@ RSpec.describe 'User stats', type: :feature do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit "/stats"
+      visit '/stats'
 
       expect(page).to have_content("Total time spent studying:\n00 hours and 30 minutes")
       expect(page).to have_content("Paired time spent studying:\n00 hours and 10 minutes")

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe "As a logged in user visiting my dashboard" do
+describe 'As a logged in user visiting my dashboard' do
   before(:each) do
     VCR.use_cassette('quote_cassette') do
-      @user = User.create(name: "Bob", email: "bob@bob.com", password: "abcd")
+      @user = User.create(name: 'Bob', email: 'bob@bob.com', password: 'abcd')
       visit '/'
       click_on 'Login'
       expect(current_path).to eq('/login')
@@ -14,7 +16,7 @@ describe "As a logged in user visiting my dashboard" do
     end
   end
 
-  it "I can click a link that takes me to a new study session", :vcr do
+  it 'I can click a link that takes me to a new study session', :vcr do
     click_on 'New Study Session'
 
     fill_in :topic, with: 'Study Up'
@@ -25,7 +27,7 @@ describe "As a logged in user visiting my dashboard" do
     expect(current_path).to eql("/study_sessions/#{study_session.id}")
   end
 
-  it "I can see a list of previous sessions if I have any" do
+  it 'I can see a list of previous sessions if I have any' do
     session_1 = @user.study_sessions.create(topic: 'Math', paired: false, duration: 45)
     session_2 = @user.study_sessions.create(topic: 'Ruby', paired: false, duration: 30)
     session_3 = @user.study_sessions.create(topic: 'OOP', paired: false, duration: 35)

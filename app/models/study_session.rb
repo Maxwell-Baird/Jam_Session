@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StudySession < ApplicationRecord
   validates :topic, presence: true
   validates :paired, inclusion: { in: [true, false] }
@@ -5,8 +7,6 @@ class StudySession < ApplicationRecord
   belongs_to :user
 
   def self.topics
-    StudySession.all.map do |session|
-      session.topic
-    end.uniq
+    StudySession.all.map(&:topic).uniq
   end
 end

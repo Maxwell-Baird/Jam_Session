@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
@@ -17,9 +19,7 @@ class User < ApplicationRecord
   end
 
   def topics
-    study_sessions.all.map do |session|
-      session.topic
-    end.uniq
+    study_sessions.all.map(&:topic).uniq
   end
 
   def topic_time(topic)
@@ -42,9 +42,8 @@ class User < ApplicationRecord
   def minutes_to_hours(minutes_params)
     hours = minutes_params / 60
     minutes = minutes_params % 60
-    hours_string = hours.to_s.rjust(2, "0")
-    minutes_string = minutes.to_s.rjust(2, "0")
+    hours_string = hours.to_s.rjust(2, '0')
+    minutes_string = minutes.to_s.rjust(2, '0')
     "#{hours_string} hours and #{minutes_string} minutes."
   end
-
 end

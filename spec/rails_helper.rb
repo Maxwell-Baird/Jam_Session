@@ -1,9 +1,12 @@
+# frozen_string_literal: true
 
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+if Rails.env.production?
+  abort('The Rails environment is running in production mode!')
+end
 require 'rspec/rails'
 require 'pry'
 
@@ -27,7 +30,7 @@ SimpleCov.start do
 end
 
 Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
+  config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
   end
@@ -41,7 +44,6 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
-
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.include FactoryBot::Syntax::Methods
@@ -53,7 +55,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -82,12 +83,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-
 end
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
   config.hook_into :webmock
+  config.allow_http_connections_when_no_cassette = true
   config.filter_sensitive_data('<SPOTIFY-CLIENT-TOKEN-1>') { ENV['SPOTIFY_CLIENT_ID_1'] }
   config.filter_sensitive_data('<SPOTIFY-TOKEN>') { ENV['SPOTIFY-TOKEN'] }
   config.configure_rspec_metadata!

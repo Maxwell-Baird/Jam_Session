@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
@@ -6,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def four_oh_four
-    raise ActionController::RoutingError, 'Not Found, User might not be login'
+    render file: '/public/404'
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StudySessionsController < ApplicationController
   before_action :current_user!
 
@@ -12,7 +14,7 @@ class StudySessionsController < ApplicationController
       redirect_to "/study_sessions/#{@studySession.id}"
     else
       flash[:error] = @studySession.errors.full_messages.to_sentence
-      redirect_to "/study_sessions/new"
+      redirect_to '/study_sessions/new'
     end
   end
 
@@ -25,7 +27,7 @@ class StudySessionsController < ApplicationController
   def destroy
     @studySession = StudySession.find(params[:id])
     @studySession.destroy
-    redirect_to "/"
+    redirect_to '/'
   end
 
   private
